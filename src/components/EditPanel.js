@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { Box, Text,
+import { Box, Text, Flex,
     FormControl,
+    Switch,
     FormLabel, Input 
 } from '@chakra-ui/react'
 import { AppContext } from '../context/ContextProvider'
@@ -9,6 +10,7 @@ function EditPanel() {
     const [state, dispatch] = useContext(AppContext);
     const { selected } = state;
     const task = selected !== null ?  state.tasks[selected] : null;
+    
 
     const taskUpdateHandler = (e, key, nested=false) => {
         const draftTask = { ...task };
@@ -47,6 +49,19 @@ function EditPanel() {
                 <FormLabel fontSize=".9rem" fontWeight={600}>Email</FormLabel>
                 <Input size="xs" value={task.author.email} onChange={(e) => taskUpdateHandler(e, 'author.email', true)} type='email' />
             </FormControl>
+            <Text fontSize=".9rem" fontWeight={600} mb={1}>Status</Text>
+            <Flex>
+                <Text>Red</Text>
+                <Switch size='sm' />
+            </Flex>
+            <Flex>
+                <Text>Red</Text>
+                <Switch size='sm' />
+            </Flex>
+            <Flex>
+                <Text>Red</Text>
+                <Switch size='sm' />
+            </Flex>
         </Box>
     )
 }
