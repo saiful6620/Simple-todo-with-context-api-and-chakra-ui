@@ -6,8 +6,6 @@ import { nanoid } from 'nanoid'
 function AddButton({index}) {
     const [state, dispatch] = useContext(AppContext);
 
-    console.log(index);
-
     const addTask = () => {
         const task = {
             id: nanoid(),

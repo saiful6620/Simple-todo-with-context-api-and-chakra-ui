@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useContext }  from 'react';
 import { Box, Text, Stack, ScaleFade } from '@chakra-ui/react';
 import AddButton from './AddButton';
+import { AppContext } from '../context/ContextProvider'
 
 function Task({task, index}) {
+    const [state, dispatch] = useContext(AppContext);
+    
+    const selectHandler = (index) => {
+        dispatch({
+            type: 'SELECT_TASK',
+            payload: {
+                index: index - 1
+            }
+        })
+    }
+
     return (
         <ScaleFade initialScale={0.8} in={true}>
-        <Box p={4} borderWidth={1} rounded={4} bg="#FFFFFF" mb={2}>
+        <Box p={4} borderWidth={1} rounded={4} bg="#FFFFFF" mb={2} onClick={() => selectHandler(index)}>
             <Text fontSize="1.2rem" fontWeight="500" lineHeight="1.2">{task.title}</Text>
             <Text fontSize="1rem" fontWeight="400" mb={1}>{task.description}</Text>
             <Box display="flex" flexDir="column" mb={3}>
