@@ -49,7 +49,7 @@ function EditPanel() {
                 <FormLabel fontSize=".9rem" fontWeight={600}>Email</FormLabel>
                 <Input size="xs" value={task.author.email} onChange={(e) => taskUpdateHandler(e, 'author.email', true)} type='email' />
             </FormControl>
-            <Text fontSize=".9rem" fontWeight={600} mb={1}>Status</Text>
+            {/* <Text fontSize=".9rem" fontWeight={600} mb={1}>Status</Text>
             <Flex>
                 <Text>Red</Text>
                 <Switch size='sm' />
@@ -61,7 +61,7 @@ function EditPanel() {
             <Flex>
                 <Text>Red</Text>
                 <Switch size='sm' />
-            </Flex>
+            </Flex> */}
         </Box>
     )
 }

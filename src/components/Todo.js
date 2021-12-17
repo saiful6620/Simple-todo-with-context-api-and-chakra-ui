@@ -1,30 +1,17 @@
-import React, { useContext } from 'react'
-import { Box, Container, Text } from '@chakra-ui/react'
-import { AppContext } from '../context/ContextProvider'
-import Task from './Task';
-import AddButton from './AddButton';
+import React from 'react'
+import { Box, Container } from '@chakra-ui/react'
 import EditPanel from './EditPanel';
+import TaskList from './TaskList';
 
-function Todo() {
-    const [state] = useContext(AppContext);
-    const { tasks } = state;
+const Todo = () => {
+
+    console.log("Todo Render");
 
     return (
-        <Container minWidth={1100} shadow="sm" borderWidth={1} rounded={5} p={5}>
+        <Container maxWidth={1100} shadow="sm" borderWidth={1} rounded={5} p={5}>
             <Box display="flex">
                 <Box flex="1 1" flexBasis="auto" bg="gray.100" p={4}>
-
-                    <Text fontSize={20} fontWeight={700} mb={2}>Task List</Text>
-                    {
-                        tasks.map((task, index) => {
-                            return <Task key={task.id} task={task} index={index + 1} />
-                        })  
-                    }
-
-                    {
-                        tasks.length === 0 && <AddButton index={0} />
-                    }
-                   
+                   <TaskList />
                 </Box>
                 <EditPanel />
             </Box>
